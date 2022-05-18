@@ -1,0 +1,37 @@
+<?php
+//this class allows you to quickly connect to a mysql database
+//Ypu just write 3 lines of code and you cant start interacting with db data
+class Connection
+{
+    public $db;
+    public $dss;
+    public $query;
+    public $sql;
+    function __construct()
+    {
+        $this->dss = "mysql:host=localhost;dbname=amazim";
+        $this->db = new PDO($this->dss, 'amazim_user', '13079898birth@gutu');
+    } //endof constructor
+    //prepare statement function
+    public function prepare()
+    {
+        $this->sql =   $this->db->prepare($this->query);
+    }
+    //no return
+    public function send()
+    {
+        $this->sql->execute();
+    }
+    //execute one array
+    public function select()
+    {
+        $this->sql->execute();
+        return $this->sql->fetch();
+    }
+    //fetch multidimesional
+    public function selectMulti()
+    {
+        $this->sql->execute();
+        return $this->sql->fetchAll();
+    }
+}
