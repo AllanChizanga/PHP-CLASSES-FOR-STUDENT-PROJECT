@@ -9,8 +9,8 @@ class Connection
     public $sql;
     function __construct()
     {
-        $this->dss = "mysql:host=localhost;dbname=amazim";
-        $this->db = new PDO($this->dss, 'amazim_user', '13079898birth@gutu');
+        $this->dss = "mysql:host=localhost;dbname=databsenamehere";
+        $this->db = new PDO($this->dss, 'dbuser', 'dbpassword');
     } //endof constructor
     //prepare statement function
     public function prepare()
